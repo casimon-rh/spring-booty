@@ -1,0 +1,19 @@
+{
+  "name": "resources",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-scripts": "1.1.4",
+    "xhr": "^2.4.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "prepare-for-maven-war": "gulp move"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}

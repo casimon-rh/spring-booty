@@ -1,0 +1,12 @@
+spring:
+  thymeleaf:
+    prefix: classpath:/build/
+  resources:
+    static-locations:
+    - classpath:/build/
+logging:
+  level:
+    org:
+      springframework:
+        web: DEBUG
+  file: /Users/administrador/Source/backendninja/log.out
