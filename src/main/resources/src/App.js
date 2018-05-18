@@ -5,13 +5,14 @@ import './App.css';
 
 class App extends Component {
   config = {
-    baseUrl: process.env.BASE_URL || 'http://localhost:8080'
+    baseUrl: process.env.BASE_URL
   }
   state = {
     name: ''
   }
   componentDidMount() {
     var self = this;
+    console.log('baseUrl',self.config.baseUrl);
     xhr(self.config.baseUrl + '/api/nombre', {
       headers: [{
         'Access-Control-Allow-Origin': 'http://localhost:3000'

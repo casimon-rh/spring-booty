@@ -6,7 +6,7 @@
 
 	<groupId>com.konoha</groupId>
 	<artifactId>backendninja</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2</version>
 	<packaging>war</packaging>
 
 	<name>backendninja</name>
@@ -24,6 +24,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 		<gulp.output.directory>target/gulp/build</gulp.output.directory>
+		<baseurl>http://localhost:8080/backendninja</baseurl>
 	</properties>
 
 	<dependencies>
@@ -42,6 +43,11 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
@@ -63,6 +69,14 @@
 				<version>2.1.1</version>
 				<configuration>
 					<failOnMissingWebXml>false</failOnMissingWebXml>
+					<warSourceExcludes>
+					node_modules/**,
+					build/**,
+					cache/**,
+					resources/node_modules/**,
+					resources/build/**,
+					resources/cache/**
+					</warSourceExcludes>
 					<webResources>
 						<resource>
 							<directory>${gulp.output.directory}</directory>
@@ -75,8 +89,6 @@
 				<artifactId>exec-maven-plugin</artifactId>
 				<version>1.3.2</version>
 				<executions>
-					<!-- Required: The following will ensure `npm install` is called before 
-						anything else during the 'Default Lifecycle' -->
 					<execution>
 						<id>npm install (initialize)</id>
 						<goals>
@@ -145,6 +157,10 @@
 								<argument>--prefix</argument>
 								<argument>./src/main/resources</argument>
 							</arguments>
+							<environmentVariables>
+								<key>BASE_URL</key>
+								<value>${baseurl}</value>
+							</environmentVariables>
 						</configuration>
 					</execution>
 

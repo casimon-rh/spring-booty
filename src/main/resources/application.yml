@@ -4,6 +4,10 @@ spring:
   resources:
     static-locations:
     - classpath:/build/
+server:
+  port: 8080
+  servlet:
+    context-path: /backendninja
 logging:
   level:
     org:

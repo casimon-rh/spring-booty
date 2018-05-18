@@ -15,5 +15,6 @@
   },
   "devDependencies": {
     "gulp": "^3.9.1"
-  }
+  },
+  "homepage": "/backendninja"
 }
